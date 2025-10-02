@@ -66,28 +66,6 @@ const App = () => (
           </SimpleGrid>
         </VStack>
 
-        {/* Why Choose Us Section */}
-        <VStack spacing={8} mb={16}>
-          <Text fontSize="2xl" fontWeight="semibold" color="gray.800" textAlign="center">
-            Why Choose sqncs studio
-          </Text>
-          
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} width="100%">
-            <VStack spacing={4} p={6} borderRadius="lg" border="1px" borderColor="gray.200" _hover={{ borderColor: "blue.300", transform: "translateY(-2px)" }} transition="all 0.2s">
-              <Text fontSize="xl" fontWeight="semibold" color="gray.800">Strategic Approach</Text>
-              <Text fontSize="md" color="gray.600" textAlign="center">
-                We don't just implement AI for the sake of it. We identify the right opportunities that will drive real business value and growth.
-              </Text>
-            </VStack>
-            
-            <VStack spacing={4} p={6} borderRadius="lg" border="1px" borderColor="gray.200" _hover={{ borderColor: "green.300", transform: "translateY(-2px)" }} transition="all 0.2s">
-              <Text fontSize="xl" fontWeight="semibold" color="gray.800">Hands-on Partnership</Text>
-              <Text fontSize="md" color="gray.600" textAlign="center">
-                From strategy to implementation, we work closely with your team to ensure successful AI adoption and long-term success.
-              </Text>
-            </VStack>
-          </SimpleGrid>
-        </VStack>
 
         <Divider borderColor="gray.200" mb={8} />
         
