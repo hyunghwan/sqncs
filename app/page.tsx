@@ -2,20 +2,43 @@
 
 import InteractiveSurfers from "@/components/InteractiveSurfers";
 import WaveCursor from "@/components/WaveCursor";
-import { Mail } from "lucide-react";
+import { ExternalLink, Github, Mail } from "lucide-react";
 import { motion } from "framer-motion";
+
+const projects = [
+  {
+    name: "Diced OS",
+    href: "https://dicedos.com/",
+    description:
+      "An operating layer for small teams turning messy operational work into clearer workflows.",
+  },
+  {
+    name: "Downmark",
+    href: "https://downmark.sqncs.com/",
+    github: "https://github.com/hyunghwan/downmark",
+    description:
+      "An open-source publishing tool for turning notes and markdown into a clean web surface.",
+  },
+  {
+    name: "Glenmoor Story",
+    href: "https://glenmoorstory.sqncs.com/",
+    github: "https://github.com/hyunghwan/glenmoor-story",
+    description:
+      "An experimental open-source SRPG prototype, updated occasionally as a game-design sandbox.",
+  },
+];
 
 export default function Home() {
   return (
-    <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
+    <main className="relative flex min-h-screen flex-col items-center overflow-hidden px-4 py-12 sm:py-16">
       <WaveCursor />
       <InteractiveSurfers />
 
       {/* Content Layer */}
-      <div className="z-10 flex flex-col items-center gap-8 text-center px-4">
+      <div className="z-10 flex w-full max-w-6xl flex-1 flex-col items-center justify-center gap-8 text-center">
         {/* Bouncy Title */}
         <motion.h1 
-          className="text-8xl md:text-9xl lg:text-[10rem] font-chewy text-transparent bg-clip-text bg-gradient-to-b from-yellow-300 to-yellow-500 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]"
+          className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-chewy text-transparent bg-clip-text bg-gradient-to-b from-yellow-300 to-yellow-500 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]"
           style={{ 
             textShadow: "6px 6px 0px #b45309", /* Darker orange/brown outline for contrast (Porous look) */
             WebkitTextStroke: "2px #b45309"
@@ -37,10 +60,60 @@ export default function Home() {
           A software studio situated around the Pacific Ocean.
         </motion.p>
 
+        {/* Projects */}
+        <motion.section
+          className="grid w-full max-w-5xl gap-4 md:grid-cols-3"
+          aria-label="Projects"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.65 }}
+        >
+          {projects.map((project, index) => (
+            <motion.article
+              key={project.name}
+              className="group flex min-h-48 flex-col rounded-[2rem] border-4 border-white/40 bg-white/20 p-5 text-left shadow-[0_12px_0_rgba(3,105,161,0.32),0_20px_36px_rgba(0,0,0,0.16)] backdrop-blur-md transition-colors hover:bg-white/30"
+              whileHover={{ y: -8, rotate: index === 1 ? 1 : -1 }}
+              transition={{ type: "spring", stiffness: 260, damping: 18 }}
+            >
+              <a
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start justify-between gap-3 text-white drop-shadow-[2px_2px_0_rgba(3,105,161,0.9)]"
+              >
+                <h2 className="font-chewy text-3xl leading-none sm:text-4xl">
+                  {project.name}
+                </h2>
+                <ExternalLink className="mt-1 h-6 w-6 shrink-0 stroke-[3px] text-yellow-200 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </a>
+
+              <p className="mt-4 flex-1 font-fredoka text-base font-semibold leading-relaxed text-white drop-shadow-[1px_1px_0_rgba(3,105,161,0.85)] sm:text-lg">
+                {project.description}
+              </p>
+
+              {project.github ? (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex w-fit items-center gap-2 rounded-full border-b-4 border-slate-700 bg-slate-900/85 px-4 py-2 font-fredoka text-sm font-bold text-white shadow-[0_0_0_4px_rgba(255,255,255,0.18)] transition-all hover:bg-slate-800 hover:shadow-[0_0_0_7px_rgba(255,255,255,0.24)] active:translate-y-1 active:border-b-2"
+                >
+                  <Github className="h-4 w-4 stroke-[3px]" />
+                  GitHub
+                </a>
+              ) : (
+                <span className="mt-5 inline-flex w-fit rounded-full border-b-4 border-yellow-600 bg-yellow-300 px-4 py-2 font-fredoka text-sm font-bold text-sky-950 shadow-[0_0_0_4px_rgba(255,255,255,0.18)]">
+                  Live product
+                </span>
+              )}
+            </motion.article>
+          ))}
+        </motion.section>
+
         {/* Fun CTA Button - Patrick Pink */}
         <motion.a
           href="mailto:hello@sqncs.com"
-          className="mt-10 group relative px-12 py-6 rounded-full bg-pink-400 text-white font-chewy text-3xl tracking-wide shadow-[0_0_0_8px_rgba(255,255,255,0.25)] hover:shadow-[0_0_0_16px_rgba(255,255,255,0.4)] transition-all duration-300 flex items-center gap-4 active:scale-95 border-b-8 border-pink-600"
+          className="group relative flex items-center gap-4 rounded-full border-b-8 border-pink-600 bg-pink-400 px-10 py-5 font-chewy text-2xl tracking-wide text-white shadow-[0_0_0_8px_rgba(255,255,255,0.25)] transition-all duration-300 hover:shadow-[0_0_0_16px_rgba(255,255,255,0.4)] active:scale-95 sm:px-12 sm:py-6 sm:text-3xl"
           whileHover={{ scale: 1.1, rotate: -3 }}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -52,7 +125,7 @@ export default function Home() {
       </div>
           
       {/* Footer */}
-      <div className="absolute bottom-8 text-lg font-fredoka font-medium text-white/70 tracking-wider">
+      <div className="z-10 mt-8 text-lg font-fredoka font-medium tracking-wider text-white/70">
         Est. 2022 • Pacific
       </div>
     </main>
