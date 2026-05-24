@@ -10,21 +10,21 @@ const projects = [
     name: "Diced OS",
     href: "https://dicedos.com/",
     description:
-      "An operating layer for small teams turning messy operational work into clearer workflows.",
+      "Bakery operations software for inventory, recipes, invoice intake, and food-cost control.",
   },
   {
     name: "Downmark",
     href: "https://downmark.sqncs.com/",
     github: "https://github.com/hyunghwan/downmark",
     description:
-      "An open-source publishing tool for turning notes and markdown into a clean web surface.",
+      "A tiny Markdown editor for opening one `.md` file, editing in Rich or Raw mode, and saving plain Markdown back.",
   },
   {
     name: "Glenmoor Story",
     href: "https://glenmoorstory.sqncs.com/",
     github: "https://github.com/hyunghwan/glenmoor-story",
     description:
-      "An experimental open-source SRPG prototype, updated occasionally as a game-design sandbox.",
+      "A browser-first tactical RPG demo built around one handcrafted isometric battle and deterministic SRPG rules.",
   },
 ];
 
