@@ -13,6 +13,12 @@ const projects = [
       "Bakery operations software for inventory, recipes, invoice intake, and food-cost control.",
   },
   {
+    name: "Rental Ledger Sheets",
+    href: "https://rentalledgersheets.com/",
+    description:
+      "Rental books in Google Sheets: keep your current bank or card, review mixed spending by property, and send a clean CPA export.",
+  },
+  {
     name: "Downmark",
     href: "https://downmark.sqncs.com/",
     github: "https://github.com/hyunghwan/downmark",
@@ -62,7 +68,7 @@ export default function Home() {
 
         {/* Projects */}
         <motion.section
-          className="grid w-full max-w-5xl gap-4 md:grid-cols-3"
+          className="grid w-full max-w-7xl gap-4 md:grid-cols-2 xl:grid-cols-4"
           aria-label="Projects"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -72,7 +78,7 @@ export default function Home() {
             <motion.article
               key={project.name}
               className="group flex min-h-48 flex-col rounded-[2rem] border-4 border-white/40 bg-white/20 p-5 text-left shadow-[0_12px_0_rgba(3,105,161,0.32),0_20px_36px_rgba(0,0,0,0.16)] backdrop-blur-md transition-colors hover:bg-white/30"
-              whileHover={{ y: -8, rotate: index === 1 ? 1 : -1 }}
+              whileHover={{ y: -8, rotate: index % 2 === 1 ? 1 : -1 }}
               transition={{ type: "spring", stiffness: 260, damping: 18 }}
             >
               <a
@@ -81,7 +87,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="flex items-start justify-between gap-3 text-white drop-shadow-[2px_2px_0_rgba(3,105,161,0.9)]"
               >
-                <h2 className="font-chewy text-3xl leading-none sm:text-4xl">
+                <h2 className="font-chewy text-3xl leading-tight">
                   {project.name}
                 </h2>
                 <ExternalLink className="mt-1 h-6 w-6 shrink-0 stroke-[3px] text-yellow-200 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
