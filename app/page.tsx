@@ -2,7 +2,7 @@
 
 import InteractiveSurfers from "@/components/InteractiveSurfers";
 import WaveCursor from "@/components/WaveCursor";
-import { ExternalLink, Github, Mail } from "lucide-react";
+import { ExternalLink, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 
 const projects = [
@@ -21,16 +21,14 @@ const projects = [
   {
     name: "Downmark",
     href: "https://downmark.sqncs.com/",
-    github: "https://github.com/hyunghwan/downmark",
     description:
       "A tiny Markdown editor for opening one `.md` file, editing in Rich or Raw mode, and saving plain Markdown back.",
   },
   {
-    name: "Glenmoor Story",
-    href: "https://glenmoorstory.sqncs.com/",
-    github: "https://github.com/hyunghwan/glenmoor-story",
+    name: "ShowKit",
+    href: "https://showkit.sqncs.com/",
     description:
-      "A browser-first tactical RPG demo built around one handcrafted isometric battle and deterministic SRPG rules.",
+      "Guided HTML product demos, built and published with your coding agent.",
   },
 ];
 
@@ -75,44 +73,31 @@ export default function Home() {
           transition={{ delay: 0.65 }}
         >
           {projects.map((project, index) => (
-            <motion.article
+            <motion.a
               key={project.name}
-              className="group flex min-h-48 flex-col rounded-[2rem] border-4 border-white/40 bg-white/20 p-5 text-left shadow-[0_12px_0_rgba(3,105,161,0.32),0_20px_36px_rgba(0,0,0,0.16)] backdrop-blur-md transition-colors hover:bg-white/30"
+              href={project.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${project.name}`}
+              className="group flex min-h-48 cursor-pointer flex-col rounded-[2rem] border-4 border-white/40 bg-white/20 p-5 text-left shadow-[0_12px_0_rgba(3,105,161,0.32),0_20px_36px_rgba(0,0,0,0.16)] backdrop-blur-md transition-colors hover:bg-white/30 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-yellow-200 focus-visible:ring-offset-4 focus-visible:ring-offset-sky-600"
               whileHover={{ y: -8, rotate: index % 2 === 1 ? 1 : -1 }}
               transition={{ type: "spring", stiffness: 260, damping: 18 }}
             >
-              <a
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-start justify-between gap-3 text-white drop-shadow-[2px_2px_0_rgba(3,105,161,0.9)]"
-              >
+              <div className="flex items-start justify-between gap-3 text-white drop-shadow-[2px_2px_0_rgba(3,105,161,0.9)]">
                 <h2 className="font-chewy text-3xl leading-tight">
                   {project.name}
                 </h2>
                 <ExternalLink className="mt-1 h-6 w-6 shrink-0 stroke-[3px] text-yellow-200 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-              </a>
+              </div>
 
               <p className="mt-4 flex-1 font-fredoka text-base font-semibold leading-relaxed text-white drop-shadow-[1px_1px_0_rgba(3,105,161,0.85)] sm:text-lg">
                 {project.description}
               </p>
 
-              {project.github ? (
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-5 inline-flex w-fit items-center gap-2 rounded-full border-b-4 border-slate-700 bg-slate-900/85 px-4 py-2 font-fredoka text-sm font-bold text-white shadow-[0_0_0_4px_rgba(255,255,255,0.18)] transition-all hover:bg-slate-800 hover:shadow-[0_0_0_7px_rgba(255,255,255,0.24)] active:translate-y-1 active:border-b-2"
-                >
-                  <Github className="h-4 w-4 stroke-[3px]" />
-                  GitHub
-                </a>
-              ) : (
-                <span className="mt-5 inline-flex w-fit rounded-full border-b-4 border-yellow-600 bg-yellow-300 px-4 py-2 font-fredoka text-sm font-bold text-sky-950 shadow-[0_0_0_4px_rgba(255,255,255,0.18)]">
-                  Live product
-                </span>
-              )}
-            </motion.article>
+              <span className="mt-5 inline-flex w-fit rounded-full border-b-4 border-yellow-600 bg-yellow-300 px-4 py-2 font-fredoka text-sm font-bold text-sky-950 shadow-[0_0_0_4px_rgba(255,255,255,0.18)] transition-all group-hover:bg-yellow-200 group-active:translate-y-1 group-active:border-b-2">
+                Open
+              </span>
+            </motion.a>
           ))}
         </motion.section>
 
