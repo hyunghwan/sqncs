@@ -30,6 +30,12 @@ const projects = [
     description:
       "Guided HTML product demos, built and published with your coding agent.",
   },
+  {
+    name: "Signal Bloom",
+    href: "https://signalbloom.sqncs.com/",
+    description:
+      "A tiny daily path puzzle: gather two dew drops and route the exact amount of light from seed to bloom.",
+  },
 ];
 
 export default function Home() {
@@ -66,7 +72,7 @@ export default function Home() {
 
         {/* Projects */}
         <motion.section
-          className="grid w-full max-w-7xl gap-4 md:grid-cols-2 xl:grid-cols-4"
+          className="grid w-full max-w-7xl gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
           aria-label="Projects"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
