@@ -7,28 +7,28 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    name: "Diced OS",
-    href: "https://dicedos.com/",
+    name: "ShowKit",
+    href: "https://showkit.sqncs.com/",
     description:
-      "Bakery operations software for inventory, recipes, invoice intake, and food-cost control.",
+      "Guided HTML product demos, built and published with your coding agent.",
   },
   {
-    name: "Rental Ledger Sheets",
-    href: "https://rentalledgersheets.com/",
+    name: "Avarlo",
+    href: "https://avarlo.sqncs.com/",
     description:
-      "Rental books in Google Sheets: keep your current bank or card, review mixed spending by property, and send a clean CPA export.",
+      "Carries approved product patterns into coding agents and pull requests so every build starts from design direction.",
+  },
+  {
+    name: "Log Pose",
+    href: "https://logpose.sqncs.com/",
+    description:
+      "A Robinhood trading journal for reviewing entries on charts, inspecting ICT structure, and testing setups against historical data.",
   },
   {
     name: "Downmark",
     href: "https://downmark.sqncs.com/",
     description:
       "A tiny Markdown editor for opening one `.md` file, editing in Rich or Raw mode, and saving plain Markdown back.",
-  },
-  {
-    name: "ShowKit",
-    href: "https://showkit.sqncs.com/",
-    description:
-      "Guided HTML product demos, built and published with your coding agent.",
   },
   {
     name: "Signal Bloom",
